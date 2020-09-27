@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import {Container, Jumbotron, Row, Col, Button} from 'reactstrap';
-import './App.css';
-import {ReactComponent as PlaylistSVG} from './logo.svg';
+import {Button} from 'reactstrap';
 
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
-class App extends Component {
+class SpotifyAuth extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,7 +53,7 @@ class App extends Component {
       localStorage.removeItem('stateKey');
     }
     console.log(access_token);
-    // DO STUFF WITH ACCESS TOKEN HERE
+    // DO STUFF WITH ACCEES TOKEN HERE
     // this.props.onConnectWithSpotify(access_token);
   }
 
@@ -91,35 +89,13 @@ class App extends Component {
 
   render() {
     return (
-      <Container className="App">
-        <Row>
-          <Col>
-          <Jumbotron>
-            <h1 className="display-3">The Full Collection</h1>
-            <hr />
-            <Col>
-              <PlaylistSVG className="svg" />
-            </Col>
-            <hr />
-            <Row>
-              <Col>
-              <p>The Full Collection allows you to create playlists with your favorite artist's entire works. Get started by logging in with Spotify below!</p>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-              <Button color="success"
-                onClick={(event) => this.handleRedirect(event)}
-              >Login with Spotify</Button>
-              </Col>
-            </Row>
-          </Jumbotron>
-          </Col>
-        </Row>
-      </Container>
+      <div>
+        <Button
+          onClick={(event) => this.handleRedirect(event)}
+        >Login with Spotify</Button>
+      </div>
     );
   }
 }
 
-
-export default App;
+export default SpotifyAuth;
