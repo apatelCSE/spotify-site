@@ -12,6 +12,9 @@ class App extends Component {
       // menu: this.props.userId.menu
     };
     this.state.handleRedirect = this.handleRedirect.bind(this);
+    this.state.generateRandomString = this.generateRandomString.bind(this);
+    this.state.getHashParams = this.getHashParams.bind(this);
+    this.state.componentDidMount = this.componentDidMount.bind(this);
   }
 
   generateRandomString(length) {
@@ -70,22 +73,14 @@ class App extends Component {
     const state = this.generateRandomString(16);
     localStorage.setItem('stateKey', state);
 
-    // let url = 'https://accounts.spotify.com/authorize';
-    // url += '?response_type=token';
-    // url +=
-    //   '&client_id=' + encodeURIComponent('f09fbf600009433dadce5836c57584c3');
-    // url += '&scope=' + encodeURIComponent('user-top-read');
-    // url += '&redirect_uri=' + encodeURIComponent('http://localhost:3000/abc');
-    // url += '&state=' + encodeURIComponent(state);
-    // url += '&show_dialog=true';
-    let url =
-      'https://accounts.spotify.com/authorize' +
-      '?response_type=code' +
-      '&client_id=f09fbf600009433dadce5836c57584c3' +
-      '&scope=' +
-      encodeURIComponent('user-read-private%20user-read-email') +
-      '&redirect_uri=' +
-      encodeURIComponent('http://localhost:3000/loginsuccess');
+    let url = 'https://accounts.spotify.com/authorize';
+    url += '?response_type=token';
+    url +=
+      '&client_id=' + encodeURIComponent('2fc74c919fe3493bba402b36ae82eeac');
+    url += '&scope=' + encodeURIComponent('user-top-read');
+    url += '&redirect_uri=' + encodeURIComponent('http://localhost:3000');
+    url += '&state=' + encodeURIComponent(state);
+    url += '&show_dialog=true';
     window.location = url;
   }
 
