@@ -10,6 +10,9 @@ class SpotifyAuth extends Component {
       // menu: this.props.userId.menu
     };
     this.state.handleRedirect = this.handleRedirect.bind(this);
+    this.state.generateRandomString = this.generateRandomString.bind(this);
+    this.state.getHashParams = this.getHashParams.bind(this);
+    this.state.componentDidMount = this.componentDidMount.bind(this);
   }
 
   generateRandomString(length) {
@@ -90,7 +93,7 @@ class SpotifyAuth extends Component {
   render() {
     return (
       <div>
-        <Button
+        <Button color="success"
           onClick={(event) => this.handleRedirect(event)}
         >Login with Spotify</Button>
       </div>

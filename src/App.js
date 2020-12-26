@@ -49,7 +49,7 @@ class App extends Component {
     localStorage.setItem('spotifyAuthToken', access_token);
     localStorage.getItem('spotifyAuthToken');
 
-    if (window.localStorage.getItem('authToken')) {
+    if (access_token) {
       this.setState({ isAuthenticatedWithSpotify: true });
     }
     if (access_token && (state == null || state !== storedState)) {
@@ -57,14 +57,12 @@ class App extends Component {
     } else {
       localStorage.removeItem('stateKey');
     }
-    console.log(access_token);
     // DO STUFF WITH ACCESS TOKEN HERE
     // this.props.onConnectWithSpotify(access_token);
   }
 
   handleRedirect(event) {
     event.preventDefault();
-    console.log('You linked your Spotify account!', 'success');
 
     const params = this.getHashParams();
     const access_token = params.access_token;
