@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Container, Jumbotron, Row, Col, Button} from 'reactstrap';
 import './App.css';
 import {ReactComponent as PlaylistSVG} from './logo.svg';
+import PlaylistMaker from './containers/PlaylistMaker'
 
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 class App extends Component {
@@ -104,6 +105,18 @@ class App extends Component {
               <Button color="success"
                 onClick={(event) => this.handleRedirect(event)}
               >Login with Spotify</Button>
+              </Col>
+            </Row>
+            <hr />
+            <Row>
+              <Col>
+                <h2>Playlist Maker</h2>
+                <div id="playlist-maker">
+                  {this.state.isAuthenticatedWithSpotify ?
+                  <PlaylistMaker />
+                  : <h6>There's nothing to show here yet. Sign in with Spotify to start creating playlists!</h6>
+                }
+                </div>
               </Col>
             </Row>
           </Jumbotron>
